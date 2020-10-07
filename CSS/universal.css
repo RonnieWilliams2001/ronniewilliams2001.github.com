@@ -1,9 +1,9 @@
 body {
     background-color: black;
-    background-blend-mode: lighten;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+}
+
+h1 {
+    color: rgb(127, 0, 3);
 }
 
 p {
