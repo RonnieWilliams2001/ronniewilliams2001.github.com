@@ -1,0 +1,11 @@
+.column {
+    width: 50%;
+    float: center;
+    padding: 5px;
+}
+
+.row::after {
+  	content: "";
+  	clear: both;
+  	display: table;
+}
