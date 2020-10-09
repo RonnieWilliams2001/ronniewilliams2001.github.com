@@ -31,8 +31,8 @@ p {
 }
 
 .flex-container > div {
-  background-color: #f1f1f1;
-  width: 100px;
+  background-color: black;
+  width: 33%;
   margin: 5px;
   text-align: center;
   line-height: 40px;
