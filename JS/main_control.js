@@ -35,7 +35,7 @@ function print(txt) {
 }
 
 // Create "start", "pause" and "reset" functions
-var play = false;
+var Play = false;
 
 function start() {
   startTime = Date.now() - elapsedTime;
@@ -46,7 +46,7 @@ function start() {
 }
 
 function play() {
-play = true;
+Play = true;
 }
 
 function pause() {
