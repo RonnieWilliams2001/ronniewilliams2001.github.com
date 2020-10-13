@@ -29,7 +29,11 @@ let timerInterval;
 // Create function to modify innerHTML
 
 function print(txt) {
-  document.getElementById("display").innerHTML = txt;
+  if (localStorage.timeElapsed) {
+        localStorage.timeElapsed = txt;
+      } else {
+        localStorage.timeElapsed = 0;
+      }
 }
 
 // Create "start", "pause" and "reset" functions

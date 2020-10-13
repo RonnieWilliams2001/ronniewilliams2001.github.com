@@ -11,7 +11,7 @@ h1 {
 --buttonSize: 200px;
 }
 
-button {
+.button {
 
 font-size: var(--buttonSize)/8;
 width: var(--buttonSize);
