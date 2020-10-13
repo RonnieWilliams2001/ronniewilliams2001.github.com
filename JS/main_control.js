@@ -30,7 +30,7 @@ let timerInterval;
 
 function print(txt) {
 
-        window.localStorage.putItem('timeElapsed', txt);
+        window.localStorage.setItem('timeElapsed', txt);
         document.getElementById('timerLabel').innerText = window.localStorage.getItem('timeElapsed');
 }
 
