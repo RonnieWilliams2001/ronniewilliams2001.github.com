@@ -5,6 +5,7 @@
     <title>Escape The 80's Main Control</title>
     <link rel="icon" type="image/png" href="/Images/favicon.png"/>
     <link rel="stylesheet" href="/CSS/main_control.css">
+    <link rel="stylesheet" href="index.html">
 
 </head>
 
@@ -13,14 +14,13 @@
 <h1 style="text-align:center">Escape The 80's Main Control</h1>
 
 <br>
-<button id="myButton" class="float-left submit-button" >Home</button>
+<div class="flex-container">
 
-<script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "index.html";
-    };
-</script>
+    <div><button id="playButton">Play</button></div>
+    <div><button id="pauseButton">Pause</button></div>
+</div>
 
+<script src="/JS/index.js"></script>
 
 </body>
 </html>

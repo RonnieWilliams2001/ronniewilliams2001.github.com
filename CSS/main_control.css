@@ -5,3 +5,15 @@ body {
 h1 {
     color: rgb(127, 0, 3);
 }
+
+:root {
+
+--buttonSize: 200px;
+}
+
+button {
+
+font-size: var(--buttonSize)/8;
+width: var(--buttonSize);
+padding: var(--buttonSize)/2;
+}
