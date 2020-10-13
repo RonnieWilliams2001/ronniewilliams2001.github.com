@@ -31,11 +31,9 @@ let timerInterval;
 function print(txt) {
 
         window.localStorage.setItem('timeElapsed', txt);
+        document.getElementById("timeElapsed").value = myContent;
 }
 
-function getTime() {
-return window.localStorage.getItem('timeElapsed');
-}
 
 // Create "start", "pause" and "reset" functions
 var Play = false;
