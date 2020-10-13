@@ -31,7 +31,10 @@ let timerInterval;
 function print(txt) {
 
         window.localStorage.setItem('timeElapsed', txt);
-        document.getElementById('timerLabel').innerText = window.localStorage.getItem('timeElapsed');
+}
+
+function getTime() {
+return window.localStorage.getItem('timeElapsed');
 }
 
 // Create "start", "pause" and "reset" functions
