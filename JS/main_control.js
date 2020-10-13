@@ -41,7 +41,7 @@ function start() {
   startTime = Date.now() - elapsedTime;
   timerInterval = setInterval(function printTime() {
     elapsedTime = Date.now() - startTime;
-    if(play) {print(timeToString(elapsedTime));}
+    if(Play) {print(timeToString(elapsedTime));}
   }, 10);
 }
 
