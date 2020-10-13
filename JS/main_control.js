@@ -62,6 +62,7 @@ function show() {
 
 function update() {
 	$time.innerHTML = formatTime(x.time());
+	window.localStorage.setItem('timeElapsed', formatTime(x.time())
 }
 
 function start() {
