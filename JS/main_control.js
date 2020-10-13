@@ -27,7 +27,7 @@ var	clsStopwatch = function() {
 
 		// Duration
 		this.time = function() {
-				return lapTime + (startAt ? now() - startAt : 0);
+				return startAt ? lapTime + now() - startAt : lapTime;
 			};
 	};
 
