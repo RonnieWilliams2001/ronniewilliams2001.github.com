@@ -14,6 +14,7 @@
 <script>
 
     var timeElapsed = localStorage.getItem('timeElapsed');
+    document.getElementById("timeElapsed").innerHTML = timeElapsed;
 </script>
 
 <br>
@@ -22,7 +23,7 @@
     <div>Welcome to Escape The 80's, depending on your escape size you will either have a 30 or 60 minutes to escape!</div>
 
     <div>
-        <h1>"Time Elapsed: " + timeElapsed</h1>
+        <h1>"Time Elapsed: " + <span id="timeElapsed"></span></h1>
     </div>
 </div>
 
