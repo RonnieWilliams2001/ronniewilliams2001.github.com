@@ -35,13 +35,18 @@ function print(txt) {
 }
 
 // Create "start", "pause" and "reset" functions
+var play = false;
 
 function start() {
   startTime = Date.now() - elapsedTime;
   timerInterval = setInterval(function printTime() {
     elapsedTime = Date.now() - startTime;
-    print(timeToString(elapsedTime));
+    if(play) {print(timeToString(elapsedTime));}
   }, 10);
+}
+
+function play() {
+play = true;
 }
 
 function pause() {
