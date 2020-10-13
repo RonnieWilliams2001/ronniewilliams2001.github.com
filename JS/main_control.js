@@ -1,76 +1,98 @@
-obj = {
-  element : '',
-  currentSec: 0,
-  refreshInterval:0,
-  init: function () {
-    obj.element = $('#stopwatch');
-    // localStorage.setItem('stopwatch_sec', 0);
-
-    var currTime = new Date().getTime() / 1000;
-    currTime = parseInt(currTime);
-    var storedTime = localStorage.getItem('stopwatch_time');
-    var sleepedSec = storedTime==null ? 0 : currTime - parseInt(storedTime);
-
-    obj.currentSec = localStorage.getItem('stopwatch_sec');
-    obj.currentSec = obj.currentSec ? parseInt(obj.currentSec) + sleepedSec : 0;
-    if(obj.currentSec) {
-      obj.refresh();
-       $('#reset').attr('disabled', true);
+class Stopwatch {
+    constructor(display, results) {
+        this.running = false;
+        this.display = display;
+        this.results = results;
+        this.laps = [];
+        this.reset();
+        this.print(this.times);
+    }
+    
+    reset() {
+        this.times = [ 0, 0, 0 ];
+    }
+    
+    start() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+    }
+    
+    lap() {
+        let times = this.times;
+        let li = document.createElement('li');
+        li.innerText = this.format(times);
+        this.results.appendChild(li);
+    }
+    
+    stop() {
+        this.running = false;
+        this.time = null;
     }
 
-  },
-    event: function (type) {
-      switch(type) {
-        case 'start':
-          obj.element.removeAttr('class');
-          obj.refresh();
-          $('#start, #stop, #pause').attr('disabled', false);
-          $('#reset').attr('disabled', true);
-        break;
-        case 'stop':
-          obj.element.removeAttr('class');
-          clearTimeout(obj.refreshInterval);
-          localStorage.setItem('stopwatch_time', null);
-          localStorage.setItem('stopwatch_sec', 0);
-          obj.currentSec = 0;
-
-          $('#reset, #stop').attr('disabled', false);
-          $('#start, #pause').attr('disabled', true);
-        break;
-        case 'pause':
-          obj.element.addClass('blink');
-          clearTimeout(obj.refreshInterval);
-          $('#start, #stop').attr('disabled', false);
-          $('#reset').attr('disabled', true);
-        break;
-        case 'reset':
-          localStorage.setItem('stopwatch_time', null);
-          localStorage.setItem('stopwatch_sec', 0);
-          obj.currentSec = 0;
-          obj.element.html('00:00:00');
-          $('div > input').attr('disabled', false);
-        break;
-      }
-  },
-    refresh: function() {
-      var sec = obj.currentSec++;
-      var hour = parseInt(sec/3600);
-      sec = sec % 3600;
-      var min = parseInt(sec/60);
-      sec = sec % 60;
-
-
-      obj.element.html((hour > 9 ? hour : '0' + hour) + ':' + (min > 9 ? min : '0' + min) + ':' + (sec > 9 ? sec : '0' + sec));
-      localStorage.setItem('stopwatch_sec', obj.currentSec);
-
-      var currTime = new Date().getTime() / 1000;
-      currTime = parseInt(currTime);
-      localStorage.setItem('stopwatch_time', currTime);
-
-      obj.refreshInterval = setTimeout('obj.refresh()', 1000);
+    restart() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+        this.reset();
+    }
+    
+    clear() {
+        clearChildren(this.results);
+    }
+    
+    step(timestamp) {
+        if (!this.running) return;
+        this.calculate(timestamp);
+        this.time = timestamp;
+        this.print();
+        requestAnimationFrame(this.step.bind(this));
+    }
+    
+    calculate(timestamp) {
+        var diff = timestamp - this.time;
+        // Hundredths of a second are 100 ms
+        this.times[2] += diff / 10;
+        // Seconds are 100 hundredths of a second
+        if (this.times[2] >= 100) {
+            this.times[1] += 1;
+            this.times[2] -= 100;
+        }
+        // Minutes are 60 seconds
+        if (this.times[1] >= 60) {
+            this.times[0] += 1;
+            this.times[1] -= 60;
+        }
+    }
+    
+    print() {
+        this.display.innerText = this.format(this.times);
+    }
+    
+    format(times) {
+        return `\
+${pad0(times[0], 2)}:\
+${pad0(times[1], 2)}:\
+${pad0(Math.floor(times[2]), 2)}`;
     }
 }
 
-  obj.init();
+function pad0(value, count) {
+    var result = value.toString();
+    for (; result.length < count; --count)
+        result = '0' + result;
+    return result;
+}
 
+function clearChildren(node) {
+    while (node.lastChild)
+        node.removeChild(node.lastChild);
+}
 
+let stopwatch = new Stopwatch(
+    document.querySelector('.stopwatch'),
+    document.querySelector('.results'));

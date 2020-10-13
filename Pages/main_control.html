@@ -15,19 +15,19 @@
 <br>
 <div class="flex-container">
 
-    <div id="stopwatch">00:00:00</div>
+    <div class="stopwatch"></div>
 </div>
 
 <div class="flex-container">
 
-    <input type="button" id="start" value="Start" class="button" onclick="obj.event('start')"/>
-    <input type="button" id="pause" value="Pause" class="button" onclick="obj.event('pause')"/>
+    <a href="JS/main_control.js" class="button" onClick="stopwatch.start();">Start</a>
+    <a href="JS/main_control.js" class="button" onClick="stopwatch.stop();">Stop</a>
 </div>
 
 <div class="flex-container">
 
-    <input type="button" id="stop" value="Stop" class="button" onclick="obj.event('stop')"/>
-    <input type="button" id="reset" value="Reset" class="button" onclick="obj.event('reset')"/>
+    <a href="JS/main_control.js" class="button" onClick="stopwatch.restart();">Restart</a>
+
 </div>
 
 </body>
