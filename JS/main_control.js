@@ -71,9 +71,6 @@ obj = {
     }
 }
 
-
-$('document').ready(function () {
   obj.init();
-});
 
 
