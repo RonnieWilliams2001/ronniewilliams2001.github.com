@@ -67,7 +67,7 @@ function show() {
 
 function update() {
 	$time.innerHTML = formatTime(x.time());
-	window.localStorage.setItem('timeElapsed', formatTime(x.timeDisplay()));
+	setCookie('timeElapsed', formatTime(x.timeDisplay()), 100);
 }
 
 function start() {

@@ -5,6 +5,7 @@
     <title>Escape The 80's</title>
     <link rel="icon" type="image/png" href="/Images/favicon.png"/>
     <link rel="stylesheet" href="/CSS/universal.css">
+    <script src="/JS/cookies.js"></script>
 </head>
 
 <body>
@@ -12,9 +13,7 @@
 <img src="/Images/mainBanner.png" alt="Banner" class="center">
 
 <script>
-
-    var timeElapsed = localStorage.getItem('timeElapsed');
-    document.getElementById("timeElapsed").innerHTML = timeElapsed;
+    document.getElementById("timeElapsed").innerHTML = getCookie('timeElapsed')
 </script>
 
 <br>
