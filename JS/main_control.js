@@ -1,61 +1,79 @@
-// Convert time to a format of hours, minutes, seconds, and milliseconds
+obj = {
+  element : '',
+  currentSec: 0,
+  refreshInterval:0,
+  init: function () {
+    obj.element = $('#stopwatch');
+    // localStorage.setItem('stopwatch_sec', 0);
 
-function timeToString(time) {
-  let diffInHrs = time / 3600000;
-  let hh = Math.floor(diffInHrs);
+    var currTime = new Date().getTime() / 1000;
+    currTime = parseInt(currTime);
+    var storedTime = localStorage.getItem('stopwatch_time');
+    var sleepedSec = storedTime==null ? 0 : currTime - parseInt(storedTime);
 
-  let diffInMin = (diffInHrs - hh) * 60;
-  let mm = Math.floor(diffInMin);
+    obj.currentSec = localStorage.getItem('stopwatch_sec');
+    obj.currentSec = obj.currentSec ? parseInt(obj.currentSec) + sleepedSec : 0;
+    if(obj.currentSec) {
+      obj.refresh();
+       $('#reset').attr('disabled', true);
+    }
 
-  let diffInSec = (diffInMin - mm) * 60;
-  let ss = Math.floor(diffInSec);
+  },
+    event: function (type) {
+      switch(type) {
+        case 'start':
+          obj.element.removeAttr('class');
+          obj.refresh();
+          $('#start, #stop, #pause').attr('disabled', false);
+          $('#reset').attr('disabled', true);
+        break;
+        case 'stop':
+          obj.element.removeAttr('class');
+          clearTimeout(obj.refreshInterval);
+          localStorage.setItem('stopwatch_time', null);
+          localStorage.setItem('stopwatch_sec', 0);
+          obj.currentSec = 0;
 
-  let diffInMs = (diffInSec - ss) * 100;
-  let ms = Math.floor(diffInMs);
+          $('#reset, #stop').attr('disabled', false);
+          $('#start, #pause').attr('disabled', true);
+        break;
+        case 'pause':
+          obj.element.addClass('blink');
+          clearTimeout(obj.refreshInterval);
+          $('#start, #stop').attr('disabled', false);
+          $('#reset').attr('disabled', true);
+        break;
+        case 'reset':
+          localStorage.setItem('stopwatch_time', null);
+          localStorage.setItem('stopwatch_sec', 0);
+          obj.currentSec = 0;
+          obj.element.html('00:00:00');
+          $('div > input').attr('disabled', false);
+        break;
+      }
+  },
+    refresh: function() {
+      var sec = obj.currentSec++;
+      var hour = parseInt(sec/3600);
+      sec = sec % 3600;
+      var min = parseInt(sec/60);
+      sec = sec % 60;
 
-  let formattedHH = hh.toString().padStart(2, "0");
-  let formattedMM = mm.toString().padStart(2, "0");
-  let formattedSS = ss.toString().padStart(2, "0");
 
-  return `${formattedHH}:${formattedMM}:${formattedSS}`;
+      obj.element.html((hour > 9 ? hour : '0' + hour) + ':' + (min > 9 ? min : '0' + min) + ':' + (sec > 9 ? sec : '0' + sec));
+      localStorage.setItem('stopwatch_sec', obj.currentSec);
+
+      var currTime = new Date().getTime() / 1000;
+      currTime = parseInt(currTime);
+      localStorage.setItem('stopwatch_time', currTime);
+
+      obj.refreshInterval = setTimeout('obj.refresh()', 1000);
+    }
 }
 
-// Declare variables to use in our functions below
 
-let startTime;
-let elapsedTime = 0;
-let timerInterval;
-
-// Create function to modify innerHTML
-
-function print(txt) {
-
-        window.localStorage.setItem('timeElapsed', txt);
-        document.getElementById("timeElapsed").value = myContent;
-}
+$('document').ready(function () {
+  obj.init();
+});
 
 
-// Create "start", "pause" and "reset" functions
-var Play = false;
-
-function start() {
-  startTime = Date.now() - elapsedTime;
-  timerInterval = setInterval(function printTime() {
-    elapsedTime = Date.now() - startTime;
-    if(Play) {print(timeToString(elapsedTime));}
-  }, 10);
-}
-
-function play() {
-Play = true;
-}
-
-function pause() {
-  clearInterval(timerInterval);
-}
-
-function reset() {
-  clearInterval(timerInterval);
-  print("00:00:00");
-  elapsedTime = 0;
-}

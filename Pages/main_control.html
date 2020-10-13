@@ -5,7 +5,7 @@
     <title>Escape The 80's Main Control</title>
     <link rel="icon" type="image/png" href="/Images/favicon.png"/>
     <link rel="stylesheet" href="/CSS/main_control.css">
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
+    <script type='text/javascript' href="/JS/main_control.js"></script>
 </head>
 
 <body>
@@ -15,14 +15,14 @@
 <br>
 <div class="flex-container">
 
-    <input type="button" id="start" value="Start" onclick="obj.event('start')"/>
-    <input type="button" id="pause" value="Pause" onclick="obj.event('pause')"/>
+    <input type="button" id="start" value="Start" class="button" onclick="obj.event('start')"/>
+    <input type="button" id="pause" value="Pause" class="button" onclick="obj.event('pause')"/>
 </div>
 
 <div class="flex-container">
 
-    <input type="button" id="stop" value="Stop" onclick="obj.event('stop')"/>
-    <input type="button" id="reset" value="Reset" onclick="obj.event('reset')"/>
+    <input type="button" id="stop" value="Stop" class="button" onclick="obj.event('stop')"/>
+    <input type="button" id="reset" value="Reset" class="button" onclick="obj.event('reset')"/>
 </div>
 
 </body>
