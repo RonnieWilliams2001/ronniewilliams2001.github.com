@@ -27,8 +27,13 @@ var	clsStopwatch = function() {
 
 		// Duration
 		this.time = function() {
-				return startAt ? lapTime + now() - startAt : lapTime;
+				return lapTime + (startAt ? now() - startAt : 0);
 			};
+
+
+		this.timeDisplay = function() {
+            return startAt ? lapTime + now() - startAt : lapTime;
+        };
 	};
 
 var x = new clsStopwatch();
@@ -62,7 +67,7 @@ function show() {
 
 function update() {
 	$time.innerHTML = formatTime(x.time());
-	window.localStorage.setItem('timeElapsed', formatTime(x.time()));
+	window.localStorage.setItem('timeElapsed', formatTime(x.timeDisplay()));
 }
 
 function start() {
