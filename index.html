@@ -12,13 +12,18 @@
 
 <img src="/Images/mainBanner.png" alt="Banner" class="center">
 
+<script>
+
+    var timeElapsed = localStorage.getItem('timeElapsed');
+</script>
+
 <br>
 <div class="flex-container">
 
     <div>Welcome to Escape The 80's, depending on your escape size you will either have a 30 or 60 minutes to escape!</div>
 
     <div>
-        <div><span id="time"></span></div>
+        <h1>"Time Elapsed: " + timeElapsed</h1>
     </div>
 </div>
 
