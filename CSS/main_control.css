@@ -6,14 +6,25 @@ h1 {
     color: rgb(127, 0, 3);
 }
 
-:root {
-
---buttonSize: 200px;
-}
-
 .button {
 
-font-size: var(--buttonSize)/8;
-width: var(--buttonSize);
-padding: var(--buttonSize)/2;
+font-size: 50px;
+width: 400px;
+height: 200px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.flex-container > div {
+  background-color: black;
+  width: 33%;
+  margin: 5px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  color: rgb(127, 0, 3);
 }

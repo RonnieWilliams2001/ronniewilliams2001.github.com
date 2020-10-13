@@ -29,11 +29,9 @@ let timerInterval;
 // Create function to modify innerHTML
 
 function print(txt) {
-  if (localStorage.timeElapsed) {
-        localStorage.timeElapsed = txt;
-      } else {
-        localStorage.timeElapsed = 0;
-      }
+
+        window.localStorage.putItem('timeElapsed', txt);
+        document.getElementById('timerLabel').innerText = window.localStorage.getItem('timeElapsed');
 }
 
 // Create "start", "pause" and "reset" functions
@@ -55,13 +53,3 @@ function reset() {
   print("00:00:00");
   elapsedTime = 0;
 }
-
-// Create event listeners
-
-let playButton = document.getElementById("playButton");
-let pauseButton = document.getElementById("pauseButton");
-//let resetButton = document.getElementById("resetButton"); //TODO
-
-playButton.addEventListener("click", start);
-pauseButton.addEventListener("click", pause);
-//resetButton.addEventListener("click", reset); //TODO
