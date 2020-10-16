@@ -13,7 +13,12 @@
 <img src="/Images/mainBanner.png" alt="Banner" class="center">
 
 <script>
-    document.getElementById("timeElapsed").innerHTML = getCookie('timeElapsed');
+
+function getTime() {
+    var Time = getCookie("timeElapsed");
+    document.getElementById("timeElapsed").innerHTML = Time;
+    }
+getTime();
 </script>
 
 <br>
@@ -21,9 +26,7 @@
 
     <div>Welcome to Escape The 80's, depending on your escape size you will either have a 30 or 60 minutes to escape!</div>
 
-    <div>
-        <h1>"Time Elapsed: " + <span id="timeElapsed"></span></h1>
-    </div>
+    <div>Time: <span id="timeDisplay"></span></div>
 </div>
 
 </body>
