@@ -2,31 +2,48 @@
 <html>
 <head>
     <Meta charset="utf-8">
-    <title>Escape The 80's</title>
+    <title>Among Us Real Life</title>
     <link rel="icon" type="image/png" href="/Images/favicon.png"/>
     <link rel="stylesheet" href="/CSS/universal.css">
     <script src="/JS/cookies.js"></script>
+
+    </script>
+        <script type="text/javascript">
+
+        var currProgress = 0;
+        var cookieProgress = getCookie("Progress");
+        var done = false;
+        var total = 100;
+
+        function startProgress() {
+        var prBar = document.getElementById("prog");
+        var val = document.getElementById("numValue");
+        if(cookieProgress == "") currProcess = cookieProcess;
+        prBar.value = currProgress;
+        val.innerHTML = Math.round((currProgress/total)*100)+"%";
+        if(currProgress>100) done=true;
+        if(!done)
+            setTimeout("startProgress()", 100);
+        else
+        {
+            done = false;
+            currProgress = 0;
+        }
+        }
+    </script>
 </head>
 
-<body>
+<body onload="startProgress()">
 
 <img src="/Images/mainBanner.png" alt="Banner" class="center">
-
-<script>
-
-function getTime() {
-    var Time = getCookie("timeElapsed");
-    document.getElementById("timeElapsed").innerHTML = Time;
-    }
-getTime();
-</script>
 
 <br>
 <div class="flex-container">
 
-    <div>Welcome to Escape The 80's, depending on your escape size you will either have a 30 or 60 minutes to escape!</div>
-
-    <div>Time: <span id="timeDisplay"></span></div>
+    <div>
+        <progress id="prog" value="100" max="100"></progress>
+        <div id="numValue">100%</div>
+    </div>
 </div>
 
 </body>
