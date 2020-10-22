@@ -21,3 +21,8 @@ function getCookie(name) {
     }
     return null;
 }
+
+function deleteCookie(name) {
+
+    setCookie(name, "", 1/86500.5);
+}
