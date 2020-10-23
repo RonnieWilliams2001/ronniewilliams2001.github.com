@@ -1,4 +1,4 @@
-function join() {
+function onJoin() {
 
     var id = 1;
 
