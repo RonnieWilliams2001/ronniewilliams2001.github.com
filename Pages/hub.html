@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Meta charset="utf-8">
+    <title>Among Us Real Life Hub</title>
+    <link rel="icon" type="image/png" href="/Images/favicon.png"/>
+    <link rel="stylesheet" href="/CSS/universal.css">
+    <link rel="stylesheet" href="/CSS/progress_bar.css">
+    <script src="/JS/cookies.js"></script>
+    <script src="/JS/Player/player_amount.js"></script>
+    <script src="/JS/Player/auto_sort.js" defer></script>
+    <script src="/JS/hub.js"></script>
+    <script src="/JS/Player/crewmate.js"></script>
+    <script src="/JS/Player/imposter.js"></script>
+
+
+    <script src="/JS/start.js"></script>
+    <script src="/JS/end.js"></script>
+
+
+</head>
+
+<body>
+
+<img src="/Images/mainBanner.png" alt="Banner" class="center">
+
+<br>
+
+<div class="flex-container">
+
+    <div>
+        <h1>Active Players</h1>
+
+    </div>
+
+    <div>
+        <div class= "playerAmt">Player Amount: 0</div>
+        <div class= "imposterAmtAmt">Imposter Amount: 0</div>
+        <input type="button" value="Start" onclick="startAll()" class="button" id="startButton">
+        <button id="settingsButton" class="button">Open Settings</button>
+        <button id="leaveButton" class="button">Leave Game</button>
+    </div>
+</div>
+
+<ul id="playerList">
+
+    <il id="player1"></il>
+    <il id="player2"></il>
+    <il id="player3"></il>
+    <il id="player4"></il>
+    <il id="player5"></il>
+    <il id="player6"></il>
+    <il id="player7"></il>
+    <il id="player8"></il>
+    <il id="player9"></il>
+    <il id="player10"></il>
+    <il id="player11"></il>
+    <il id="player12"></il>
+    <il id="player13"></il>
+    <il id="player14"></il>
+    <il id="player15"></il>
+</ul>
+
+<div id="settingsModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="flex-container">
+
+            <div>
+                <div class= "playerAmt">Player Amount: 0</div>
+                <div class= "imposterAmt">Imposter Amount: 0</div>
+                <input type="button" value="1imposter" onclick="setOneImposter()" class="button">
+                <input type="button" value="2imposters" onclick="setTwoImposter()" class="button">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- PROGRESS BAR
+<h1>Task Progress:</h1>
+<div class="progress-bar" style="--width: 0" id="progress" data-label=""></div>
+-->
+
+
+</body>
+</html>
