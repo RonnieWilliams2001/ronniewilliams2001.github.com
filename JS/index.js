@@ -1,7 +1,7 @@
 setInterval(() => {
 
-    var playerAmt = document.getElementsById("playerAmt");
-    var game = document.getElementsById("gameLive");
+    var playerAmt = document.getElementById("playerAmt");
+    var game = document.getElementById("gameLive");
 
     playerAmt.innerHTML = "PLayer Amount: " + getPlayerAmt();
 
