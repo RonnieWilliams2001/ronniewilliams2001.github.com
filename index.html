@@ -5,20 +5,32 @@
     <title>Among Us Real Life</title>
     <link rel="icon" type="image/png" href="/Images/favicon.png"/>
     <link rel="stylesheet" href="/CSS/universal.css">
-    <link rel="stylesheet" href="/CSS/progress_bar.css">
     <script src="/JS/cookies.js"></script>
-    <script src="/JS/progress_bar.js" defer></script>
+    <script src="/JS/join.js"></script>
+    <script src="/JS/player_amount.js"></script>
+    <script src="/JS/index.js"></script>
+
 
 </head>
 
 <body>
 
-    <img src="/Images/mainBanner.png" alt="Banner" class="center">
+<div class="flex-container">
 
-    <br>
-    <h1>Task Progress:</h1>
-    <div class="progress-bar" style="--width: 0" id="progress" data-label=""></div>
+    <div>
 
+        <div id="gameLive">Game Live: No</div>
+        <div id="playerAmt">Player Amount: 0</div>
+
+    </div>
+
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" id="username">
+        <button onclick="onJoin()">Join Game</button>
+    </div>
+
+</div>
 
 
 </body>

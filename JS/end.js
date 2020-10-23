@@ -8,5 +8,6 @@ function deleteAll() {
 
     deleteCookie("gameLive");
     deleteCookie("playerAmt");
-    deleteCookie("imposterAmt");
+    deleteCookie("imposterOne");
+    deleteCookie("imposterTwo");
 }
