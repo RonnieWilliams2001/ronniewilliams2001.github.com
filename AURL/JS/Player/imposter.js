@@ -20,12 +20,12 @@ setInterval(() => {
         two.disabled = true;
     }
 
-    if(getCookie("imposterAmt") == null) {
-
-    imposterAmt.innerHTML = "Imposter Amount: 0";
-    } else {
+    if(getCookie("imposterAmt")) {
 
     imposterAmt.innerHTML = "Imposter Amount: " + getCookie("imposterAmt");
+    } else {
+
+    imposterAmt.innerHTML = "Imposter Amount: 0";
     }
  }, 5)
 
