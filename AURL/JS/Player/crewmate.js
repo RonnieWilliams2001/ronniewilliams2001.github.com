@@ -3,6 +3,6 @@ setInterval(() => {
     var playerAmt = document.getElementById("playerAmt");
 
 
-    playerAmt.innerHTML = "Imposter Amount: " + getPlayerAmt();
+    playerAmt.innerHTML = "Player Amount: " + getPlayerAmt();
 
  }, 5)
