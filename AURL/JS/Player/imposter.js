@@ -4,7 +4,7 @@ setInterval(() => {
     var two = document.getElementsById("2imposter");
     var imposterAmt = document.getElementById("imposterAmt");
 
-    if((getCookie("imposterAmt") = 2) || getCookie("imposterAmt") = null) {
+    if((getCookie("imposterAmt") == 2) || getCookie("imposterAmt") == null) {
 
         one.disabled = false;
         } else {
@@ -12,7 +12,7 @@ setInterval(() => {
         one.disabled = true;
     }
 
-    if(getPlayerAmt() > 6 && getCookie("imposterAmt") = 1) {
+    if(getPlayerAmt() > 6 && getCookie("imposterAmt") == 1) {
 
         two.disabled = false;
         } else {
