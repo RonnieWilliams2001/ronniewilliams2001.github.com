@@ -2,23 +2,8 @@ body {
     background-color: black;
 }
 
-h1 {
+.red_text {
     color: rgb(127, 0, 3);
-}
-
-ul {
-    color: rgb(127, 0, 3);
-}
-
-p {
-    border: 1px solid rgb(127, 0, 3);
-    color: rgb(127, 0, 3);
-	width: 50%;
-  	margin: auto;
-	text-align: justify;
-    text-justify: inter-word;
-	background-color: black;
-	padding: 5px;
 }
 
 .center {
