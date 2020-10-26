@@ -17,7 +17,7 @@ setInterval(() => {
         twoBut.disabled = false;
         } else {
 
-        twoButÍß.disabled = true;
+        twoBut.disabled = true;
     }
 
     if(getCookie("imposterAmt")) {
