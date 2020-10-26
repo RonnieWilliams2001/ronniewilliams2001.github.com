@@ -6,6 +6,10 @@ body {
     color: rgb(127, 0, 3);
 }
 
+.black_text {
+    color: black;
+}
+
 .center {
   display: block;
   margin-left: auto;
