@@ -20,7 +20,13 @@ setInterval(() => {
         two.disabled = true;
     }
 
-    imposterAmt.innerHTML = "Imposter Amount: " + getCookie("imposterAmt") || 0;
+    if(getCookie("imposterAmt") == null) {
+
+    imposterAmt.innerHTML = "Imposter Amount: 0";
+    } else {
+
+    imposterAmt.innerHTML = "Imposter Amount: " + getCookie("imposterAmt");
+    }
  }, 5)
 
 function setOneImposter() {
