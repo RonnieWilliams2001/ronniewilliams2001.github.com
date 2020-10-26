@@ -6,75 +6,59 @@ var settingsBut = document.getElementById("settingsButton");
 
 setInterval(() => {
 
-     var username = localStorage.getItem("username");
-     var id = localStorage.getItem("id");
+    var username = localStorage.getItem("username");
+    var id = localStorage.getItem("id");
 
-     //SETTING USERNAME FROM LOCAL STORAGE
+    //SETTING USERNAME FROM LOCAL STORAGE
 
-     if(username != null && id != null && username != getCookie("player" + id)) {
+    if(username != null && id != null && username != getCookie("player" + id)) {
 
         setCookie("player" + id, username, 1);
-     }
+    }
 
-     //SET USERNAME INPUT FROM LOCAL STORAGE
-     if(id == null) {
+    //SET USERNAME INPUT FROM LOCAL STORAGE
+    if(id == null) {
 
-     if(username != null) document.getElementById("username").setAttribute("value", localStorage.getItem("username"));
-     LogInModal.style.display = "block";
-     }
+        if(username != null) document.getElementById("username").setAttribute("value", localStorage.getItem("username"));
+        LogInModal.style.display = "block";
+    }
 
-     //DISABLE/ENABLE START BUTTON
+    //DISABLE/ENABLE START BUTTON
 
-     if(getPlayerAmt() > 4) {
+    if(getPlayerAmt() > 4) {
 
-         startBut.disabled = false;
-     } else {
+        startBut.disabled = false;
+    } else {
 
-         startBut.disabled = true;
-     }
+        startBut.disabled = true;
+    }
 
-     //ALLOW SETTINGS CHANGE
+    //ALLOW SETTINGS CHANGE
 
-     if(username == "Ronaldi2001") {
+    if(username == "Ronaldi2001") {
 
         settingsBut.disabled = false;
-     } else {
+    } else {
 
         settingsBut.disabled = true;
-     }
- }, 5)
+    }
+}, 5)
 
- var modal = document.getElementById("settingsModal");
- var settingsBtn = document.getElementById("settingsButton");
- var leaveBtn = document.getElementById("leaveButton");
- var span = document.getElementsByClassName("close")[0];
+var settingsBtn = document.getElementById("settingsButton");
+var leaveBtn = document.getElementById("leaveButton");
+var span = document.getElementsByClassName("close")[0];
 
- ChangeUsername = function() {
+ChangeUsername = function() {
 
- localStorage.setItem("username", document.getElemtById("NewUsername"));
+    localStorage.setItem("username", document.getElemtById("NewUsername"));
 
- }
+}
 
- settingsBtn.onclick = function() {
-   modal.style.display = "block";
- }
 
-  settingsBtn.onclick = function() {
+LeaveGame = function() {
 
     var id = localStorage.getItem("playerId");
 
     deleteCookie("player" + id);
     localStorage.removeItem("id");
-    localStorage.removeItem("username");
-    location.href("index.html");
-  }
-
- span.onclick = function() {
-   modal.style.display = "none";
- }
-
- window.onclick = function(event) {
-   if (event.target == modal) {
-     modal.style.display = "none";
-   }
- }
+}
