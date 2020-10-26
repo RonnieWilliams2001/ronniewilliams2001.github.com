@@ -2,9 +2,11 @@
 <html>
 <head>
     <Meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Among Us Real Life Hub</title>
     <link rel="icon" type="image/png" href="/AURL/Images/favicon.png"/>
     <link rel="stylesheet" href="/AURL/CSS/universal.css">
+    <link rel="stylesheet" href="/AURL/CSS/modal.css">
     <link rel="stylesheet" href="/AURL/CSS/progress_bar.css">
 </head>
 
@@ -49,22 +51,71 @@
     <il id="player15"></il>
 </ul>
 
-<div id="settingsModal" class="modal">
+<!--LOGIN MODAL-->
 
-    <!-- Modal content -->
+<div id="LogInModal" class="modal">
+
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="flex-container">
 
-            <div>
-                <div class= "playerAmt">Player Amount: 0</div>
-                <div class= "imposterAmt">Imposter Amount: 0</div>
-                <input type="button" value="1imposter" onclick="setOneImposter()" class="button">
-                <input type="button" value="2imposters" onclick="setTwoImposter()" class="button">
-            </div>
+        <div class="modal-header">
+
+            <h1>Log In</h1>
+        </div>
+
+        <div class="modal-body">
+
+            <label for="username">Username: </label>
+            <input type="text" id="username" value="">
+            <button onclick="onJoin()">Join Game</button>
         </div>
     </div>
+</div>
 
+<!--SETTINGS MODAL-->
+<div id="SettingModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h1>Settings</h1>
+        </div>
+
+        <div class="modal-body">
+
+            Amount of Imposters
+            <button id="1imposter" onclick="setOneImposter()">One Imposter</button>
+            <button id="2imposter" onclick="setTwoImposter()">Two Imposters</button>
+        </div>
+
+        <div class="modal-footer">
+            <br>
+            <button onClick="document.getElementById('SettingModal').style.display = 'none'">Close</button>
+        </div>
+    </div>
+</div>
+
+<div id="UsernameModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h1>Change Username</h1>
+        </div>
+
+        <div class="modal-body">
+
+            <label for="NewUsername">Username: </label>
+            <input type="text" id="NewUsername" value="">
+            <button onclick="ChangeUsername()">Change Username</button>
+        </div>
+
+        <div class="modal-footer">
+            <br>
+            <button onClick="document.getElementById('SettingModal').style.display = 'none'">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <!-- PROGRESS BAR

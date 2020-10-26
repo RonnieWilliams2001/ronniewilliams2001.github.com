@@ -2,28 +2,25 @@ setInterval(() => {
 
     var one = document.getElementsById("1imposter");
     var two = document.getElementsById("2imposter");
-    var imposterAmt = document.getElementsByClassName("imposterAmt");
+    var imposterAmt = document.getElementById("imposterAmt");
 
-    if(getPlayerAmt() > 6 && (getCookie("imposterAmt") = 1) || !getCookie("imposterAmt")) {
+    if((getCookie("imposterAmt") = 2) || getCookie("imposterAmt") = null) {
 
-        setOneImposter();
-        two.disabled = false;
-        } else {
-
-        two.disabled = true;
-    }
-
-    if(getCookie("imposterAmt") = 2) {
-
-        setTwoImposter();
         one.disabled = false;
         } else {
 
         one.disabled = true;
     }
 
-    imposterAmt[0].innerHTML = "Imposter Amount: " + getCookie("imposterAmt") || 0;
-    imposterAmt[1].innerHTML = "Imposter Amount: " + getCookie("imposterAmt") || 0;
+    if(getPlayerAmt() > 6 && getCookie("imposterAmt") = 1) {
+
+        two.disabled = false;
+        } else {
+
+        two.disabled = true;
+    }
+
+    imposterAmt.innerHTML = "Imposter Amount: " + getCookie("imposterAmt") || 0;
  }, 5)
 
 function setOneImposter() {
