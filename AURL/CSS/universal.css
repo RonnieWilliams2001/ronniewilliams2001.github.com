@@ -18,12 +18,14 @@ body {
 
 .flex-container {
   display: flex;
+  justify-content: center;
   background-color: black;
   width: 100%;
 }
 
 .flex-container > div {
   background-color: black;
+  width: 50%;
   margin: 5px;
   text-align: center;
   color: rgb(127, 0, 3);
