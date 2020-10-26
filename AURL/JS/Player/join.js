@@ -19,7 +19,8 @@ function onJoin() {
         if(getCookie("player" + id) == null) {
 
             setCookie("player"+ id, localStorage.getItem("username"), 1);
-            localStorage.setItem("playerId", id);
+            localStorage.setItem("id", id);
+            localStorage.setItem("username", document.getElementById("username").value);
             document.getElementById("LogInModal").style.display = "none";
             break;
         }
