@@ -15,8 +15,9 @@ function onJoin() {
         id++;
         setCookie("player"+ id, localStorage.getItem("username"), 1);
         localStorage.setItem("playerId", id);
-        location.href("/Pages/hub.html");
+        location.replace("/Pages/hub.html")
         break;
+        document.getElementById("Modal").style.display = "none"
         }
     }
 
