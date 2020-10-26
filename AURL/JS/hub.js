@@ -44,10 +44,6 @@ setInterval(() => {
     }
 }, 5)
 
-var settingsBtn = document.getElementById("settingsButton");
-var leaveBtn = document.getElementById("leaveButton");
-var span = document.getElementsByClassName("close")[0];
-
 ChangeUsername = function() {
 
     localStorage.setItem("username", document.getElemtById("NewUsername"));
