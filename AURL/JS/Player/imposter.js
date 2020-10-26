@@ -1,23 +1,23 @@
 setInterval(() => {
 
-    var one = document.getElementsById("1imposter");
-    var two = document.getElementsById("2imposter");
+    var oneBut = document.getElementById("1imposter");
+    var twoBut = document.getElementById("2imposter");
     var imposterAmt = document.getElementById("imposterAmt");
 
     if((getCookie("imposterAmt") == 2) || getCookie("imposterAmt") == null) {
 
-        one.disabled = false;
+        oneBut.disabled = false;
         } else {
 
-        one.disabled = true;
+        oneBut.disabled = true;
     }
 
     if(getPlayerAmt() > 6 && getCookie("imposterAmt") == 1) {
 
-        two.disabled = false;
+        twoBut.disabled = false;
         } else {
 
-        two.disabled = true;
+        twoButÍß.disabled = true;
     }
 
     if(getCookie("imposterAmt")) {
