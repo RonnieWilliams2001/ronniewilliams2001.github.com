@@ -35,10 +35,17 @@
 
         <div>
 
-            <button onclick="location.replace("https://ronniewilliams2001.github.io/AURL/Pages/hub.html")">Among Us Real Life</button>
-            <button onclick="location.replace("https://ronniewilliams2001.github.io/Games/Frogger.html")">Frogger</button>
+            <button onclick="openPage('https://ronniewilliams2001.github.io/AURL/Pages/hub.html')">Among Us Real Life</button>
+            <button onclick="openPage('https://ronniewilliams2001.github.io/Games/Frogger.html')">Among Us Real Life</button>
         </div>
 
     </div>
+
+    <script>
+        function openPage(loc) {
+
+            location.replace(loc)
+        }
+    </script>
 </body>
 </html>
